@@ -42,3 +42,17 @@ exports.login = async (email, password) => {
     throw error;
   }
 }
+
+// Fetch token from model and send response
+exports.sendTokenResponse = (user, statusCode, res) => {
+    // Create JWT token
+    const token = user.getSignedJwtToken();
+
+    res
+      .status(statusCode)
+      .json({
+          success: true,
+          user,
+          token
+      });
+}
