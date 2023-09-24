@@ -8,12 +8,18 @@ const errorHandler = require('./middlewares/error.middleware');
 connectDatabase();
 
 //Routes
+const auth = require("./routes/auth.routes");
+
 
 const app = express();
 //Body parser
 app.use(express.json());
 
 //Middlewares
+if (process.env['NODE_ENV'] === 'development') {
+  app.use(logger);
+}
+
 app.use(cors({}));
 app.use(helmet())
 
@@ -21,6 +27,7 @@ app.use(helmet())
 app.get('/', (req, res) => {
   res.send('<h1>Welcome to Movie Smash</h1>')
 });
+app.use('/api/v1/auth', auth);
 
 //Error Handling
 app.use(errorHandler);
