@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 const UserSchema = mongoose.Schema({
   name: {
@@ -38,5 +40,26 @@ const UserSchema = mongoose.Schema({
     default: "https://www.imageholder.com/#noimage"
   }
 }, { timestamps: true })
+
+// Encrypt password using bcrypt
+UserSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
+        next();
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
+// Sign a JWT and return
+UserSchema.methods.getSignedJwtToken = function () {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRE
+    });
+}
+// Match user given password to hashed password in databse
+UserSchema.methods.matchPassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
 
 module.exports = mongoose.model('User', UserSchema);
