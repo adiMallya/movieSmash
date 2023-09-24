@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const connectDatabase = require('./config/db');
-
+const errorHandler = require('./middlewares/error.middleware');
 
 //Connect to Db
 connectDatabase();
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 //Error Handling
-
+app.use(errorHandler);
 
 const PORT = process.env['PORT'] || 2000;
 
