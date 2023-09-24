@@ -1,8 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const connectDatabase = require('./config/db');
+
 
 //Connect to Db
+connectDatabase();
 
 //Routes
 
