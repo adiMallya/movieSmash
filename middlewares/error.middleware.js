@@ -1,5 +1,6 @@
 const ErrorResponse = require('../utils/errorResponse');
 
+// @desc: handle any error responses not taken care by defined routes
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
 
