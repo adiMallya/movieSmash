@@ -18,3 +18,27 @@ exports.signUp = async (userDetail) => {
   }
 }
 
+exports.login = async (email, password) => {
+  try {
+    if (!email || !password) {
+        throw new ErrorResponse('Please provide an email and password');
+    }
+
+    //Check user
+    const user = await User.findOne({ email });    
+    if(!user){
+      throw new ErrorResponse('Invalid credentials', 401);
+    }
+
+    //Check password
+    const matched = await user.matchPassword(password);
+
+    if(!matched){
+      throw new ErrorResponse('Invalid credentials', 401);
+    }
+
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
