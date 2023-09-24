@@ -1,0 +1,133 @@
+[
+  {
+    "_id": "5d713995b721c3bb38c1f5d0",
+    "title": "Dilwale Dulhania Le Jayenge",
+    "releaseYear": 1995,
+    "genre": ["Romance", "Drama"],
+    "director": "Aditya Chopra",
+    "actors": ["Shah Rukh Khan", "Kajol"],
+    "language": "Hindi",
+    "country": "India",
+    "rating": 8,
+    "plot": "A young man and woman fall in love on a Europe trip.",
+    "awards": "Multiple Filmfare Awards",
+    "posterUrl": "https://example.com/poster1.jpg",
+    "trailerUrl": "https://example.com/trailer1.mp4",
+    "reviews": [
+      {
+        "_id": "64f750d48c856b84279af7db",
+        "user": "5c8a1d5b0190b214360dc035",
+        "rating": 8,
+        "review": "Cult classic."
+      }
+    ]
+  },
+  {
+    "_id": "5d713a66ec8f2b88b8f830b8",
+    "title": "Bahubali: The Beginning",
+    "releaseYear": 2015,
+    "genre": ["Action", "Fantasy"],
+    "director": "S. S. Rajamouli",
+    "actors": ["Prabhas", "Anushka Shetty"],
+    "language": "Telugu",
+    "country": "India",
+    "rating": 9.1,
+    "plot": "A man embarks on a journey to rescue his mother from a tyrant.",
+    "awards": "National Film Award",
+    "posterUrl": "https://example.com/poster2.jpg",
+    "trailerUrl": "https://example.com/trailer2.mp4",
+    "reviews": [
+      {
+        "_id": "64f750d48c856b84279af7dc",
+        "user": "5d7a514b5d2c12c7449be046",
+        "rating": 9.1,
+        "review": "Milestone in modern Indian cinema."
+      }
+    ]
+  },
+  {
+    "_id": "5d725a037b292f5f8ceff787",
+    "title": "Lagaan",
+    "releaseYear": 2001,
+    "genre": ["Drama", "Sports"],
+    "director": "Ashutosh Gowariker",
+    "actors": ["Aamir Khan", "Gracy Singh"],
+    "language": "Hindi",
+    "country": "India",
+    "rating": 8.2,
+    "plot": "A group of villagers challenge British officers to a cricket match.",
+    "awards": "Oscar Nomination",
+    "posterUrl": "https://example.com/poster3.jpg",
+    "trailerUrl": "https://example.com/trailer3.mp4",
+    "reviews": [
+      {
+        "_id": "64fc79105e5a946468ae67a3",
+        "user": "5d7a514b5d2c12c7449be045",
+        "rating": 9.2,
+        "review": "We missed an oscar."
+      }
+    ]
+  },
+  {
+    "_id": "5d725a1b7b292f5f8ceff788",
+    "title": "Kabhi Khushi Kabhie Gham",
+    "releaseYear": 2001,
+    "genre": ["Drama", "Romance"],
+    "director": "Karan Johar",
+    "actors": ["Shah Rukh Khan", "Kajol"],
+    "language": "Hindi",
+    "country": "India",
+    "rating": 7.6,
+    "plot": "A family drama spanning generations and continents.",
+    "awards": "Multiple Filmfare Awards",
+    "posterUrl": "https://example.com/poster4.jpg",
+    "trailerUrl": "https://example.com/trailer4.mp4",
+    "reviews": [
+      {
+        "_id": "64f750d47c846b84279af7ac",
+        "user": "5c8a1d5b0190b214360dc035",
+        "rating": 7.6,
+        "review": "Melodrama at it's best."
+      }
+    ]
+  },
+  {
+    "_id": "5d725cb9c4ded7bcb480eaa1",
+    "title": "3 Idiots",
+    "releaseYear": 2009,
+    "genre": ["Comedy", "Drama"],
+    "director": "Rajkumar Hirani",
+    "actors": ["Aamir Khan", "Kareena Kapoor"],
+    "language": "Hindi",
+    "country": "India",
+    "rating": 9.4,
+    "plot": "Two friends search for their long-lost college buddy.",
+    "awards": "Multiple Filmfare Awards",
+    "posterUrl": "https://example.com/poster7.jpg",
+    "trailerUrl": "https://example.com/trailer7.mp4",
+    "reviews": [
+      {
+        "_id": "64f751d48c856b84279bf4de",
+        "user": "5c8a1d5b0190b214360dc033",
+        "rating": 9.4,
+        "review": "Finest film. Better than the book."
+      }
+    ]
+  },
+  {
+    "_id": "5d725c84c4ded7bcb480eaa0",
+    "title": "Gully Boy",
+    "releaseYear": 2019,
+    "genre": ["Drama", "Musical"],
+    "director": "Zoya Akhtar",
+    "actors": ["Ranveer Singh", "Alia Bhatt"],
+    "language": "Hindi",
+    "country": "India",
+    "rating": 7.9,
+    "plot": "A young man from the slums aspires to be a rapper.",
+    "awards": "Oscar Nomination",
+    "posterUrl": "https://example.com/poster8.jpg",
+    "trailerUrl": "https://example.com/trailer8.mp4",
+    "reviews": []
+  }
+]
