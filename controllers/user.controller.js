@@ -39,3 +39,26 @@ exports.updateProfilePicture = async (email, newProfileImage) => {
     throw error;
   }
 }
+
+exports.updateContactDetails = async (email, contactDetails) => {
+  try {
+     const user = await User.findOne({email});
+
+     if(!user){
+       throw new ErrorResponse(`User not found with email ${email}`);
+     }
+
+    const { phoneNumber, address } = contactDetails;
+    
+    if(!(phoneNumber && address)){
+      throw new ErrorResponse('Missing contact details to be updated.', 400);
+    }
+
+    Object.assign(user, contactDetails);
+    await user.save();
+
+    return user;    
+  } catch (error) {
+    throw error;
+  }
+}

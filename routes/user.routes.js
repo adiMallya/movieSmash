@@ -1,5 +1,5 @@
 const express = require('express');
-const { changePassword, updateProfilePicture } = require('../controllers/user.controller');
+const { changePassword, updateProfilePicture, updateContactDetails } = require('../controllers/user.controller');
 const { sendTokenResponse } = require('../controllers/auth.controller');
 const { protect } = require('../middlewares/auth.middleware');
 
@@ -36,6 +36,22 @@ router.post('/profile', protect, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-})
+});
+
+// @desc : Update user contact details
+// @route : POST /api/v1/user/updateContact/:email
+// @access : Protected
+router.post('/updateContact/:email', protect, async (req, res, next) => {
+  try {
+    const user = await updateContactDetails(req.params.email, req.body);
+    
+  res.status(200).json({
+    success: true,
+    user
+  });
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
