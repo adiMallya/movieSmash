@@ -42,3 +42,29 @@ exports.addRatingAndReview = async (movieId, userId, rating, review) => {
     throw err;
   }
 }
+
+exports.getMovieReviewsWithUserDetails = async (movieId) => {
+  try{
+    const movie = await Movie.findById(movieId).populate({
+      path: 'reviews',
+      populate: {
+        path: "user",
+        select: "username profileImage"
+      }
+    });
+
+    if(!movie){
+      throw new ErrorResponse(`Movie not found with id of ${movieId}.`, 400);
+    }
+    
+    const reviews = movie.reviews.slice(0, 3).map(review => ({
+      review: review.review,
+      rating: review.rating,
+      user: review.user
+    }));
+    
+    return reviews;
+  }catch(error){
+    throw error;
+  }
+}
