@@ -6,7 +6,7 @@ exports.changePassword = async (userId, currentPassword, newPassword) => {
      const user = await User.findById(userId);
 
      if(!user){
-       throw new ErrorResponse(`User not found with id ${userId}`);
+       throw new ErrorResponse(`User not found with id of ${userId}`, 400);
      }
 
      //Check current password
@@ -28,7 +28,7 @@ exports.updateProfilePicture = async (email, newProfileImage) => {
      const user = await User.findOne({email});
 
      if(!user){
-       throw new ErrorResponse(`User not found with email ${email}`);
+       throw new ErrorResponse(`User not found with email of ${email}`, 400);
      }
 
     user.profileImage = newProfileImage;
@@ -45,7 +45,7 @@ exports.updateContactDetails = async (email, contactDetails) => {
      const user = await User.findOne({email});
 
      if(!user){
-       throw new ErrorResponse(`User not found with email ${email}`);
+       throw new ErrorResponse(`User not found with email of ${email}`, 400);
      }
 
     const { phoneNumber, address } = contactDetails;
@@ -69,7 +69,7 @@ exports.findUserByPhoneNumber = async (phoneNumber) => {
  });
 
     if(!user){
-      throw new ErrorResponse(`No user found with this phone number.`);
+      throw new ErrorResponse(`No user found with this phone number.`, 400);
     }
 
     return user;
