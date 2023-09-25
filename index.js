@@ -10,6 +10,7 @@ connectDatabase();
 //Routes
 const auth = require("./routes/auth.routes");
 const user = require("./routes/user.routes");
+const movies = require("./routes/movies.routes");
 
 const app = express();
 //Body parser
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 });
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/user', user);
+app.use('/api/v1/movies', movies);
 //Error Handling
 app.use(errorHandler);
 
