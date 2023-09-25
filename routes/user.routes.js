@@ -1,5 +1,5 @@
 const express = require('express');
-const { changePassword, updateProfilePicture, updateContactDetails } = require('../controllers/user.controller');
+const { changePassword, updateProfilePicture, updateContactDetails, findUserByPhoneNumber } = require('../controllers/user.controller');
 const { sendTokenResponse } = require('../controllers/auth.controller');
 const { protect } = require('../middlewares/auth.middleware');
 
@@ -52,6 +52,22 @@ router.post('/updateContact/:email', protect, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+// @desc : Get user by phone number
+// @route : POST /api/v1/user/phone/:phoneNumber
+// @access : Public
+router.get('/phone/:phoneNumber', async (req, res, next) => {
+  try{
+    const user = await findUserByPhoneNumber(req.params.phoneNumber);
+
+    res.status(200).json({
+      success: true,
+      user
+    });
+  } catch(error){
+    next(error);
+  } 
 });
 
 module.exports = router;

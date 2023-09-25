@@ -61,4 +61,19 @@ exports.updateContactDetails = async (email, contactDetails) => {
   } catch (error) {
     throw error;
   }
+};
+
+exports.findUserByPhoneNumber = async (phoneNumber) => {
+  try{
+    const user = await User.findOne({ phoneNumber 
+ });
+
+    if(!user){
+      throw new ErrorResponse(`No user found with this phone number.`);
+    }
+
+    return user;
+  }catch(error){
+    throw error;
+  }
 }
