@@ -53,8 +53,8 @@ UserSchema.pre('save', async function (next) {
 });
 // Sign a JWT and return
 UserSchema.methods.getSignedJwtToken = function () {
-    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRE
+    return jwt.sign({ id: this._id }, process.env['JWT_SECRET'], {
+        expiresIn: process.env['JWT_EXPIRE']
     });
 }
 // Match user given password to hashed password in databse
