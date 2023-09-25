@@ -50,10 +50,19 @@ const MovieSchema = new mongoose.Schema({
   reviews: [{
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      required: [true, "User reference missing."]
     },
-    rating: Number,
-    review: String
+    rating: {
+      type: Number,
+      min: 0,
+      max: 10,
+      default: 0
+    },
+    review: {
+      type: String,
+      required: [true, "Please describe your review."]
+    }
   }]
 }, { timestamps: true });
 
