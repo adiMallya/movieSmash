@@ -22,3 +22,20 @@ exports.changePassword = async (userId, currentPassword, newPassword) => {
     throw error;
   }
 }
+
+exports.updateProfilePicture = async (email, newProfileImage) => {
+  try {
+     const user = await User.findOne({email});
+
+     if(!user){
+       throw new ErrorResponse(`User not found with email ${email}`);
+     }
+
+    user.profileImage = newProfileImage;
+    await user.save();
+
+    return user;    
+  } catch (error) {
+    throw error;
+  }
+}
