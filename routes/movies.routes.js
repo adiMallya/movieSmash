@@ -60,39 +60,6 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// @desc : Get a movie by title
-// @route : GET /api/v1/movies/:title
-// @access : Public
-router.get('/:title', async (req, res, next) => {
-  try{
-    const movie = await readMovieByTitle(req.params.title);
-    
-    res.status(200).json({
-      success: true,
-      movie
-    });  
-  }catch(error){
-    next(error);
-  }
-});
-
-// @desc : Get movies by director
-// @route : GET /api/v1/movies/director/:directorName
-// @access : Public
-router.get('/director', async (req, res, next) => {
-  try{
-    const movies = await readMoviesByDirector(req.query.directorName);
-
-    res.status(200).json({
-      success: true,
-      movies
-    });  
-  } catch(error){
-    next(error);
-  } 
-});
-
-router.get('/genre/:gen')
 // @desc : Get all reviews for a movie
 // @route : GET /api/v1/movies/:movieId/reviews
 // @access : Public

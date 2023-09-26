@@ -3,7 +3,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xssSanitize = require('xss-clean');
-const rateLimit = require('express-rate-limit');
 const connectDatabase = require('./config/db');
 const errorHandler = require('./middlewares/error.middleware');
 
@@ -30,7 +29,7 @@ app.use(xssSanitize());
 // Enable CORS(Cross-Origin Resource Sharing)
 app.use(cors({}));
 
-app.use(helmet())
+app.use(helmet());
 
 //Mount routes
 app.get('/', (req, res) => {
