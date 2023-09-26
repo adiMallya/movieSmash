@@ -2,16 +2,6 @@ const ErrorResponse = require('../utils/errorResponse');
 const Movie = require('../models/movies.model');
 const User = require('../models/users.model');
 
-exports.readAllMovies = async () => {
-  try{
-    const movies = await Movie.find();
-
-    return movies;
-  } catch(error){
-    throw error;
-  } 
-}
-
 exports.addRatingAndReview = async (movieId, userId, rating, review) => {
   try{
     const movie  = await Movie.findById(movieId);
@@ -67,4 +57,56 @@ exports.getMovieReviewsWithUserDetails = async (movieId) => {
   }catch(error){
     throw error;
   }
+}
+
+exports.readAllMovies = async () => {
+  try{
+    const movies = await Movie.find();
+
+    return movies;
+  } catch(error){
+    throw error;
+  } 
+}
+
+exports.readMovieByTitle = async (title) => {
+  try{
+    const movie = await Movie.findOne({ title });
+
+    if(!movie){
+      throw new ErrorResponse(`Movie not found with title of ${title}.`, 400);
+    }
+
+    return movie;
+  } catch(error){
+    throw error;
+  } 
+}
+
+exports.readMoviesByDirector = async (director) => {
+  try{
+    const movies = await Movie.find({ director });
+
+    if(!movies.length){
+      throw new ErrorResponse(`No movies found of this director.`, 400);
+    }
+
+    return movies;
+  }catch(error){
+    throw error;
+  }
+}
+
+exports.readMoviesByGenre = async (genre) => {
+  try{
+    const movies = await Movie.find({ genre });
+
+    if(!movies.length){
+      throw new ErrorResponse(`No movies found in the genre of ${genre}.`, 400);
+    }
+
+    return movies;
+  } catch(error){
+    throw error;
+  } 
 }
