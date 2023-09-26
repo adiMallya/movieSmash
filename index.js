@@ -33,7 +33,7 @@ app.use(helmet());
 
 //Mount routes
 app.get('/', (req, res) => {
-  res.send('<h1>Welcome to Movie Smash</h1>')
+  res.redirect('https://documenter.getpostman.com/view/16480324/2s9YJXaQsz')
 });
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/user', user);
